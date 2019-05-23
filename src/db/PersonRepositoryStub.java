@@ -2,6 +2,7 @@ package db;
 
 import java.util.*;
 
+import domain.Gender;
 import domain.Person;
 import domain.Role;
 
@@ -9,11 +10,11 @@ public class PersonRepositoryStub implements PersonRepository {
 	private Map<String, Person> persons = new HashMap<String, Person>();
 	
 	public PersonRepositoryStub () {
-		Person administrator = new Person("bib@ucll.be", "t", "Bib", "Liothekaris", Role.BIB);
+		Person administrator = new Person("admin@ucll.be", "t", "Admin", "Makker", Role.ADMIN, 50, Gender.FEMALE);
 		add(administrator);
-		Person jan = new Person("jan@ucll.be", "t", "Jan", "Janssens", Role.LID);
+		Person jan = new Person("jan@ucll.be", "t", "Jan", "Janssens", Role.USER, 30, Gender.MALE);
 		add(jan);
-		Person an = new Person("an@ucll.be", "t", "An", "Cornelissen", Role.LID);
+		Person an = new Person("an@ucll.be", "t", "An", "Cornelissen", Role.USER, 25, Gender.FEMALE);
 		add(an);
 	}
 	
@@ -26,13 +27,10 @@ public class PersonRepositoryStub implements PersonRepository {
 	
 	public List<Person> getAll(){
 		ArrayList<Person> persons = new ArrayList<>();
-		System.out.println("arraylist ok");
 		Collection<Person> c = this.persons.values();
-		System.out.println("collection ok");
 		for(Person p : c){
 			persons.add(p);
 		}
-		System.out.println("adding ok");
 		return persons;
 	}
 

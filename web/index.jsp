@@ -16,6 +16,14 @@
 
         <main>
 
+            <c:if test="${registerSucces}">
+                <div class="success">
+                    <ul>
+                        <li>Your registration was successful.</li>
+                    </ul>
+                </div>
+            </c:if>
+
             <c:if test="${errors.size()>0 }">
                 <div class="danger">
                     <ul>
@@ -51,6 +59,7 @@
                     </form>
                 </c:otherwise>
             </c:choose>
+            <a href="Controller?action=RegisterPage" class="button">Create account</a>
 
             <h2>Blog</h2>
 

@@ -14,34 +14,32 @@ public class Person {
 
 	private String userId;
 	private String password;
-	private String salt;
 	private String firstName;
 	private String lastName;
+	private String salt;
 	private Role role;
 	private ArrayList<Person> friends = new ArrayList<>();
 	private String status;
+	private int age;
+	private Gender gender;
 
 	public Person(String userId, String password, String firstName,
-			String lastName,Role role) {
+			String lastName,Role role, int age, Gender gender) {
 		setUserId(userId);
 		setHashedPassword(password);
 		setFirstName(firstName);
 		setLastName(lastName);
 		setRole(role);
-		this.status = "offline";
-	}
-
-	public Person(String userId, String password, String salt,
-			String firstName, String lastName,Role role) {
-		setUserId(userId);
-		setPassword(password);
-		setSalt(salt);
-		setFirstName(firstName);
-		setLastName(lastName);
-		setRole(role);
+		setStatusInit();
+		setAge(age);
+		setGender(gender);
 	}
 
 	public Person() {
+	}
+
+	public void setStatusInit(){
+		this.status = "offline";
 	}
 
 	public Role getRole() {
@@ -183,6 +181,29 @@ public class Person {
 
     public String getStatus(){
 	    return this.status;
+    }
+
+    public void setAge(int age){
+	    if(age < 0){
+	        throw new DomainException("Invalid age");
+        }
+        this.age = age;
+    }
+
+    public int getAge(){
+	    return this.age;
+    }
+
+    public void setGender(Gender g){
+	    this.gender = g;
+    }
+
+    public Gender getGender(){
+	    return this.gender;
+    }
+
+    public String getGenderString(){
+	    return this.gender.getDescription();
     }
 
 	public boolean equals(Person p){

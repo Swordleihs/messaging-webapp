@@ -169,8 +169,25 @@ input[type="submit"]:hover{
     color: rgba(102,102,102, 0.7);
 }
 
-input[type="submit"]#logoutbutton{
-    margin-left:0px;
+.button:hover{
+    cursor:pointer;
+    color: rgba(102,102,102, 0.7);
+}
+
+.button{
+    text-decoration: none;
+    border: 1px solid #aaa;
+    color: #666;
+    height: 30px;
+    margin-right: 6px;
+    margin-top: 2px;
+    margin-left:28%;
+    padding: 3px 3px 3px 5px;
+    font-size: 16px;
+    border-radius: 3px;
+    box-shadow: inset 0px 1px 4px #ECECEC;
+    -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+    -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
 }
 
 
@@ -323,7 +340,19 @@ fieldset {
 }
 
 p>label.has-error {
-	color: #a80f0c;
+    color: #a80f0c;
+}
+
+.success {
+    background-color: rgb(220, 255, 220);
+    border-color: rgb(200, 255, 200);
+    color: rgb(100, 180, 100);
+    border-radius: 15px;
+}
+
+.success ul{
+    margin-left: 0px;
+    padding: 15px;
 }
 
 ul {
@@ -368,11 +397,6 @@ nav ul li a:hover {
     border-bottom: 2px solid ;
 }
 
-
-
 nav ul li #actual {
     color:rgb(0, 160, 255);
 }
-
-
-

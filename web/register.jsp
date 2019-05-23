@@ -31,9 +31,9 @@
                 </p>
                 <p>
                     <label for="gender">Gender</label>
-                    <select id="gender">
-                        <option>Male</option>
-                        <option>Female</option>
+                    <select id="gender" name="gender">
+                        <option name="m">Male</option>
+                        <option name="f">Female</option>
                     </select>
                 </p>
                 <p>

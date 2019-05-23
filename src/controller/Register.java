@@ -1,8 +1,8 @@
 package controller;
 
+import domain.Gender;
 import domain.Person;
 import domain.Role;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class Register extends RequestHandler {
         this.setAge(person, request, errors);
         this.setEmail(person, request, errors);
         this.setPassword(person, request, errors);
-
+        this.setGender(person, request, errors);
         person.setRole(Role.USER);
         person.setStatusInit();
 
@@ -85,11 +85,22 @@ public class Register extends RequestHandler {
 
     private void setAge(Person p, HttpServletRequest request, List<String> errors){
         int age = Integer.parseInt(request.getParameter("age"));
-        if(age < 0){
-            errors.add("Age can't be negative");
-        }
-        else{
+        try{
+            p.setAge(age);
             request.setAttribute("previousAge", age);
+        }catch(Exception e){
+            errors.add(e.getMessage());
+        }
+    }
+
+    private void setGender(Person p, HttpServletRequest request, List<String> errors){
+        String gender = request.getParameter("gender");
+        if(gender.equals("Male")){
+            p.setGender(Gender.MALE);
+        }else if(gender.equals("Female")){
+            p.setGender(Gender.FEMALE);
+        }else{
+            errors.add("Invalid gender");
         }
     }
 }

@@ -1,7 +1,7 @@
 package domain;
 
 public enum Role {
-	BIB("bibliothekaris"), LID("lid");
+	ADMIN("admin"), USER("user");
 
 	private String description;
 
