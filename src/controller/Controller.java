@@ -32,6 +32,11 @@ public class Controller extends HttpServlet {
 		processRequest(request, response);
 	}
 
+	protected void doOptions(HttpServletRequest request,
+							 HttpServletResponse response) throws ServletException, IOException{
+		processRequest(request, response);
+	}
+
 	protected void processRequest(HttpServletRequest request,
 								  HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");

@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 public class UpdateUser extends AsyncroRequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("updateUser handlerequest");
         String id = request.getParameter("email");
         String firstname = request.getParameter("firstname");
         String name = request.getParameter("name");
